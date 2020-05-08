@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& coordinates) {
+        if(coordinates.size()==2) return true;
+       int x1 = coordinates[0][0], x2 = coordinates[1][0];
+       int y1 = coordinates[0][1], y2 = coordinates[1][1];
+        if((x2-x1)==0) return false;
+        int m = (y2-y1)/(x2-x1);
+        int c = y1 - m*x1;
+        for(int i=0;i<coordinates.size();i++)
+        {
+           int x = coordinates[i][0];
+           int y = coordinates[i][1];
+            if((y == (m*x)+c)) continue;
+            else return false;
+        }
+        return true;
+    }
+};
